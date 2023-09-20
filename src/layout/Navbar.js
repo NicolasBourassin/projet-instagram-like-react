@@ -1,4 +1,7 @@
+import "./navbar.css"
 import React from 'react';
+import {Link} from "react-router-dom";
+import {MenuItems} from "./MenuItems";
 
 export default function Navbar(){
     return(
@@ -8,14 +11,16 @@ export default function Navbar(){
                     <a className="navbar-brand" href="#">Insta-ersatz
                         <h6 className="fst-italic color-dark">Why would you use the original?</h6>
                     </a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="d-flex align-content-end">
-                        <button className="btn btn-outline-secondary">Login</button>
-                        <button className="btn btn-outline-light">Register</button>
+
+
+                    <div className="navItems d-flex align-content-end">
+                        <ul className="navbar-ul ">
+                            {MenuItems.map((item, index) => (
+                                <li key={index}>
+                                    <Link to={item.url} className="navButton">{item.Title}</Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
                 </div>
