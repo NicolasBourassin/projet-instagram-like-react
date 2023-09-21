@@ -17,7 +17,11 @@ export default function Navbar(){
                         <ul className="navbar-ul ">
                             {MenuItems.map((item, index) => (
                                 <li key={index}>
-                                    <Link to={item.url} className="navButton">{item.Title}</Link>
+                                    <Link to={item.url} className="navButton">
+                                        <img src={item.Picture}
+                                             alt={item.Title} width="50" />
+
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
