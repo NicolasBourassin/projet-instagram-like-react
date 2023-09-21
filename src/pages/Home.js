@@ -53,23 +53,28 @@ export default function Home(){
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Avatar</th>
                         <th scope="col">Username</th>
                         <th scope="col">Content</th>
-                        <th scope="col">URL</th>
+                        <th scope="col">Like comment</th>
                     </tr>
                     </thead>
                     <tbody>
                     {postings.length > 0 && postings.map((posting, index) => (
                         <tr key={posting.id}>
+
                             <th scope="row">{index + 1}</th>
                             <td>
-                                {posting.author ? getPostingAuthorUsername(getUserId(posting.author)) : "Unknown author"}
                                 {posting.author
                                     ? <img src={getPostingAuthorPhotoUrl(getUserId(posting.author))}
                                            alt="profile pic" width="50" />
                                     : <img src="/character.png"
                                            alt="profile pic" width="50" />}
                             </td>
+                            <td>
+                                {posting.author ? getPostingAuthorUsername(getUserId(posting.author)) : "Unknown author"}
+                            </td>
+
                             <td>
                                 {posting.videoType ? (                                                // // syntax 1 : for mp4 format
                                     // <video width="320" height="240" controls>
@@ -95,7 +100,12 @@ export default function Home(){
                                     <img src={posting.urlContent} alt="Image" width="200" />
                                 )}
                             </td>
-                            <td>{posting.urlContent}</td>
+                            <td> <button className="btn">
+                                {true ?
+                                <img src={"./thumb-up_reverse.png"} width="30"/>
+                                :
+                                <img src={"./thumb-up.png"} width="30"/>}
+                            </button> </td>
                             {/* TODO: affichage vidéo/image selon booléen */}
                             {/* TODO: récupération et affichage des commentaires */}
                         </tr>

@@ -22,7 +22,7 @@
 .navButton {
     margin-left: 20px;
     border: none;
-    /*padding: 5px 10px;*/
+    padding: 10px 0px;
     cursor: pointer;
     background-color: #345757;
     color: papayawhip;
