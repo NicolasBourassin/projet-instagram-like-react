@@ -52,7 +52,7 @@ export default function Home() {
         return author ? author.photoUrl : "";
     };
 
-    // Function to handle toggling the like status
+    // Toggle the like status (allow switch between two images)
     const toggleLike = (posting) => {
         setPostings((prevPostings) =>
             prevPostings.map((prevPosting) =>
